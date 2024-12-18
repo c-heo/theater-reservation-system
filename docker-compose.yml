@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+  backend:
+    image: openjdk:17
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      - ./backend:/srv:cached
+    working_dir: /srv
+    depends_on:
+      - db
+  # frontend:
+  #   image: node
+  #   volumes:
+  #     - ./frontend:/react-app
+  #   ports:
+  #     - 3000:3000
+
+volumes:
+  db-data:

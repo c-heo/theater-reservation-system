@@ -21,7 +21,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
 docker-compose build
 docker-compose up -d
-docker-compose exec backend bash 
+docker-compose exec backend bash
 
 # bash で以下を実行
 microdnf install findutils
@@ -29,7 +29,7 @@ sh gradlew build
 
 #jarファイルがあるか確認
 ls build/libs/
-java -jar build/libs/spring-docker-sample-0.0.1-SNAPSHOT.jar
+java -jar build/libs/theater-reservation-system-0.0.1-SNAPSHOT.jar
 ```
 
 ## サーバー起動

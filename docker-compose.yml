@@ -18,6 +18,8 @@ services:
     tty: true
     volumes:
       - ./backend:/srv:cached
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/bin/sh","/entrypoint.sh", "${DEV_ENV}"]
     working_dir: /srv
     depends_on:
       - db

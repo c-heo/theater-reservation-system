@@ -22,3 +22,9 @@ docker-compose up -d
 docker-compose up -d
 open http://localhost:3000/
 ```
+
+## テストデータ作成
+```
+docker-compose exec db bash
+psql -U postgres -f sql/create_test_data.sql
+```

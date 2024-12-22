@@ -1,15 +1,26 @@
-package com.example.demo;
+package com.example.theater_reservation_system.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.example.theater_reservation_system.repository.UserRepository;
+import com.example.theater_reservation_system.entity.User;
 
 @RestController
 public class DemoController {
 
-	@GetMapping("/")
+  private final UserRepository repository;
+
+  @Autowired
+  public DemoController(UserRepository repository) {
+    this.repository = repository;
+  }
+
+	@RequestMapping("/")
 	public String getIndex() {
-		return "index";
+		Iterable<User> users = repository.findAll();
+    return String.valueOf(users);
 	}
 	
 }

@@ -12,24 +12,18 @@ services:
       - ./db/tmp:/var/lib/postgresql/data
       - ./db/sql/initdb:/docker-entrypoint-initdb.d
       - ./db/sql:/sql/
-  backend:
+  web:
     image: openjdk:17
     ports:
       - 8080:8080
     tty: true
     volumes:
-      - ./backend:/srv:cached
-      - ./backend/entrypoint.sh:/entrypoint.sh
+      - ./web:/srv:cached
+      - ./web/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh","/entrypoint.sh", "${DEV_ENV}"]
     working_dir: /srv
     depends_on:
       - db
-  # frontend:
-  #   image: node
-  #   volumes:
-  #     - ./frontend:/react-app
-  #   ports:
-  #     - 3000:3000
 
 volumes:
   db-data:

@@ -2,12 +2,13 @@ package com.example.theater_reservation_system.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.example.theater_reservation_system.repository.UserRepository;
 import com.example.theater_reservation_system.entity.User;
 
-@RestController
+
+@Controller
 public class DemoController {
 
   private final UserRepository repository;
@@ -18,9 +19,10 @@ public class DemoController {
   }
 
 	@RequestMapping("/")
-	public String getIndex() {
+	public String getIndex(Model model) {
 		Iterable<User> users = repository.findAll();
-    return String.valueOf(users);
+    model.addAttribute("users", users);
+    return "index";
 	}
 	
 }

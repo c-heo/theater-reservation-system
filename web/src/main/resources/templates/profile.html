@@ -1,0 +1,7 @@
+<p>profile</p>
+<div th:each="user : ${users}">
+  <span th:text="${user.id}"></span>
+  <span th:text="${user.name}"></span>
+  <span th:text="${user.email}"></span>
+  <span th:text="${user.points}"></span>
+</div>

@@ -31,10 +31,5 @@ public class TopController extends BaseController {
       return templateWithoutLogin("user", model);
     }
 	}
-
-	@RequestMapping("/login")
-	public String login(Model model) {
-    return templateWithoutLogin("login", model);
-	}
 	
 }

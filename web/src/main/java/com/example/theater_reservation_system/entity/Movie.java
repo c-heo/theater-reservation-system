@@ -1,5 +1,7 @@
 package com.example.theater_reservation_system.entity;
 
+import java.sql.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,17 +11,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users")
+@Table(name = "movies")
 @Getter
 @Setter
-public class User {
+public class Movie {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
-  private String name;
-  private String email;
-  private String roles;
-  private String password;
-  private int points;
+  private String title;
+  private String genre;
+  private Date period_start;
+  private Date period_end;
 }

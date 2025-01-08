@@ -9,17 +9,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "users")
+@Table(name = "theaters")
 @Getter
 @Setter
-public class User {
+public class Theater {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
   private String name;
-  private String email;
-  private String roles;
-  private String password;
-  private int points;
+  private String area;
+  private String access;
 }

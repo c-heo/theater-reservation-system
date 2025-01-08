@@ -1,6 +1,5 @@
 package com.example.theater_reservation_system.controller;
 
-import com.example.theater_reservation_system.controller.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -22,6 +21,7 @@ public class UserController extends BaseController {
 	@RequestMapping("/profile")
 	public String getProfile(Model model) {
 		Iterable<User> users = repository.findAll();
+    model.addAttribute("users", users);
     return template("profile", model);
 	}
 }

@@ -1,5 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-  <div>no login header</div>
+  <div th:include="layout/header"></div>
   <div th:include="${contentsPath}"></div>
-  <div>footer</div>
+  <div th:include="layout/footer"></div>
 </html>

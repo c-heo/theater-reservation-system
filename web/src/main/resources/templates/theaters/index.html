@@ -1,0 +1,7 @@
+<p>theaters</p>
+<div th:each="theater : ${theaters}">
+  <span th:text="${theater.id}"></span>
+  <span th:text="${theater.name}"></span>
+  <span th:text="${theater.area}"></span>
+  <span th:text="${theater.access}"></span>
+</div>

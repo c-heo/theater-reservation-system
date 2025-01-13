@@ -1,0 +1,8 @@
+<p>movies</p>
+<div th:each="movie : ${movies}">
+  <span th:text="${movie.id}"></span>
+  <span th:text="${movie.title}"></span>
+  <span th:text="${movie.genre}"></span>
+  <span th:text="${movie.period_start}"></span>
+  <span th:text="${movie.period_end}"></span>
+</div>

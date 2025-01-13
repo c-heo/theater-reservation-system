@@ -18,10 +18,10 @@ public class UserController extends BaseController {
     this.repository = repository;
   }
 
-	@RequestMapping("/profile")
-	public String getProfile(Model model) {
-		Iterable<User> users = repository.findAll();
+  @RequestMapping("/profile")
+  public String getProfile(Model model) {
+    Iterable<User> users = repository.findAll();
     model.addAttribute("users", users);
-    return template("profile", model);
-	}
+    return template("users/show", model);
+  }
 }

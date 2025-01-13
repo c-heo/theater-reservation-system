@@ -1,3 +1,28 @@
-<div>
-  login
-</div>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <form th:action="@{/login}" method="post" class="form-signin">
+          <h3 class="form-signin-heading">ログイン</h3>
+          <hr class="colorgraph">
+          <br>
+          <div th:if="${param.error}">
+            <div th:if="${session.containsKey('SPRING_SECURITY_LAST_EXCEPTION')}">
+              <div class="alert alert-danger">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <span th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
+              </div>
+            </div>
+          </div>
+          <input type="text" name="username" placeholder="ユーザー名" class="form-control" required />
+          <input type="password" name="password" placeholder="パスワード" class="form-control" required />
+          <button class="btn form-control btn-outline-primary" name="Submit" value="Login" type="Submit">Login</button>
+        </form>
+      </div>
+    </div>
+    <div th:include="layout/footer"></div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<p>notifications</p>
+<div th:each="notification : ${notifications}">
+  <span th:text="${notification.id}"></span>
+  <span th:text="${notification.text}"></span>
+  <span th:text="${notification.checked}"></span>
+  <span th:text="${notification.created_at}"></span>
+</div>

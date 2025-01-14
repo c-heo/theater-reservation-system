@@ -1,8 +1,13 @@
 <p>movies</p>
-<div th:each="movie : ${movies}">
-  <span th:text="${movie.id}"></span>
-  <span th:text="${movie.title}"></span>
-  <span th:text="${movie.genre}"></span>
-  <span th:text="${movie.period_start}"></span>
-  <span th:text="${movie.period_end}"></span>
-</div>
+<table>
+  <thead>
+    <th>タイトル</th>
+    <th>ジャンル</th>
+    <th>期限</th>
+  </thead>
+  <tbody th:each="movie : ${movies}">
+    <td th:text="${movie.title}"></td>
+    <td th:text="${movie.genre}"></td>
+    <td><span th:text="${movie.period_start}"></span>～<span th:text="${movie.period_end}"></span></td>
+  </tbody>
+</table>

@@ -28,3 +28,6 @@ open http://localhost:3000/
 docker-compose exec db bash
 psql -U postgres -f sql/create_test_data.sql
 ```
+
+### DB を再構築する場合
+`db/tmp`フォルダの中身を空にする

@@ -1,7 +1,13 @@
 <p>theaters</p>
-<div th:each="theater : ${theaters}">
-  <span th:text="${theater.id}"></span>
-  <span th:text="${theater.name}"></span>
-  <span th:text="${theater.area}"></span>
-  <span th:text="${theater.access}"></span>
-</div>
+<table>
+  <thead>
+    <th>館名</th>
+    <th>エリア</th>
+    <th>住所</th>
+  </thead>
+  <tbody th:each="theater : ${theaters}">
+    <td th:text="${theater.title}"></td>
+    <td th:text="${theater.area}"></td>
+    <td th:text="${theater.access}"></td>
+  </tbody>
+</table>

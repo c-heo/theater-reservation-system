@@ -21,8 +21,8 @@ public class NewsController extends BaseController {
 
   @RequestMapping("/news")
   public String getMovies(Model model) {
-    Iterable<News> theaters = repository.findAll();
-    model.addAttribute("news", theaters);
+    Iterable<News> newsList = repository.findAll();
+    model.addAttribute("newsList", newsList);
     return template("news/index", model);
   }
 }

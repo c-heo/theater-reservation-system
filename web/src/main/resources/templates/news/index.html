@@ -1,7 +1,11 @@
 <p>news</p>
-<div th:each="new : ${news}">
-  <span th:text="${new.id}"></span>
-  <span th:text="${new.title}"></span>
-  <span th:text="${new.text}"></span>
-  <span th:text="${new.created_at}"></span>
-</div>
+<table>
+  <thead>
+    <th>タイトル</th>
+    <th></th>
+  </thead>
+  <tbody th:each="news : ${newsList}">
+    <td th:text="${news.title}"></td>
+    <td><span th:text="${news.created_at}"></span></td>
+  </tbody>
+</table>

@@ -1,8 +1,11 @@
 <p>reservations</p>
-<div th:each="reservation : ${reservations}">
-  <span th:text="${reservation.id}"></span>
-  <span th:text="${reservation.schedule_id}"></span>
-  <span th:text="${reservation.seat_column}"></span>
-  <span th:text="${reservation.seat_row}"></span>
-  <span th:text="${reservation.created_at}"></span>
-</div>
+<table>
+  <thead>
+    <th>映画タイトル</th>
+    <th>席</th>
+  </thead>
+  <tbody th:each="reservation : ${reservations}">
+    <td></td>
+    <td><span th:text="${reservation.seat_column}"></span><span th:text="${reservation.seat_row}"></span></td>
+  </tbody>
+</table>

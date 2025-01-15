@@ -1,0 +1,11 @@
+<h1 th:text="${movie.title}"></h1>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>ジャンル</th><td th:text="${movie.getGanre()}"></td>
+    </tr>
+    <tr>
+      <th>期限</th><td><span th:text="${movie.period_start}"></span>～<span th:text="${movie.period_end}"></span></td>
+    </tr>
+  </tbody>
+</table>

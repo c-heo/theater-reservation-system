@@ -1,13 +1,22 @@
-<p>theaters</p>
-<table>
+<h1>映画館一覧</h1>
+<table class="table table-hover">
   <thead>
-    <th>館名</th>
-    <th>エリア</th>
-    <th>住所</th>
+    <tr>
+      <th>館名</th>
+      <th>エリア</th>
+      <th>住所</th>
+    </tr>
   </thead>
-  <tbody th:each="theater : ${theaters}">
-    <td th:text="${theater.title}"></td>
-    <td th:text="${theater.area}"></td>
-    <td th:text="${theater.access}"></td>
+  <tbody>
+    <tr th:each="theater : ${theaters}" class="position-relative">
+      <td class="position-static">
+        <div class="container d-flex align-items-center">
+          <a th:href="'/theater/' + ${theater.id}" class="stretched-link text-reset text-decoration-none"></a>
+        </div>
+        <span th:text="${theater.title}"></span>
+      </td>
+      <td th:text="${theater.getArea()}"></td>
+      <td th:text="${theater.access}"></td>
+    </tr>
   </tbody>
 </table>

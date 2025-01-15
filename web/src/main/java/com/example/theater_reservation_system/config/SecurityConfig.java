@@ -18,17 +18,17 @@ public class SecurityConfig {
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http.formLogin(login -> login
-        .loginPage("/login")
+        .loginPage("/login") //ログイン画面のルーティング
         .failureUrl("/login?error")
-        .defaultSuccessUrl("/")
+        .defaultSuccessUrl("/") //ログイン後のパス
         .permitAll())
         .authorizeHttpRequests(authz -> authz
             .requestMatchers("/css/**").permitAll()
-            .requestMatchers("/","/login").permitAll()
+            .requestMatchers("/","/login").permitAll() //ログイン無しで表示できる画面のパス
             .anyRequest().authenticated()
         );
     http.logout(login -> login
-        .logoutSuccessUrl("/")
+        .logoutSuccessUrl("/") //ログアウト後のパス
         .permitAll());
     return http.build();
   }

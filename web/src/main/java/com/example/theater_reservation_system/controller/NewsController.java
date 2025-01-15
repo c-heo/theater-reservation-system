@@ -5,24 +5,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.theater_reservation_system.repository.NewsRepository;
+import com.example.theater_reservation_system.service.NewsService;
 import com.example.theater_reservation_system.entity.News;
 
 
 @Controller
 public class NewsController extends BaseController {
 
-  private final NewsRepository repository;
+  private final NewsService service;
 
   @Autowired
-  public NewsController(NewsRepository repository) {
-    this.repository = repository;
+  public NewsController(NewsService service) {
+    this.service = service;
   }
 
   @RequestMapping("/news")
   public String getMovies(Model model) {
-    Iterable<News> newsList = repository.findAll();
+    Iterable<News> newsList = service.findAll();
     model.addAttribute("newsList", newsList);
-    return template("news/index", model);
+    return template("news/index", model, "ニュース");
   }
 }

@@ -1,5 +1,7 @@
 package com.example.theater_reservation_system.entity;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,8 +18,8 @@ public class Room {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  private String id;
-  private String theater_id;
+  private UUID id;
+  private UUID theater_id;
   private int seats_count;
   private String seats;
 }

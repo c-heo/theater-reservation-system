@@ -1,6 +1,7 @@
 package com.example.theater_reservation_system.entity;
 
 import java.sql.Date;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,9 +19,9 @@ public class Reservation {
 
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  private String id;
-  private String user_id;
-  private String schedule_id;
+  private UUID id;
+  private UUID user_id;
+  private UUID schedule_id;
   private String seat_column;
   private int seat_row;
   private Date created_at;

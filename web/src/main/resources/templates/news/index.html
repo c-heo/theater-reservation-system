@@ -1,11 +1,20 @@
-<p>news</p>
-<table>
+<h1>ニュース一覧</h1>
+<table class="table table-hover">
   <thead>
-    <th>タイトル</th>
-    <th></th>
+    <tr>
+      <th>タイトル</th>
+      <th></th>
+    </tr>
   </thead>
-  <tbody th:each="news : ${newsList}">
-    <td th:text="${news.title}"></td>
-    <td><span th:text="${news.created_at}"></span></td>
+  <tbody>
+    <tr th:each="news : ${newsList}" class="position-relative">
+      <td class="position-static">
+        <div class="container d-flex align-items-center">
+          <a th:href="'/news/' + ${news.id}" class="stretched-link text-reset text-decoration-none"></a>
+        </div>
+        <span th:text="${news.title}"></span>
+      </td>
+      <td><span th:text="${news.created_at}"></span></td>
+    </tr>
   </tbody>
 </table>

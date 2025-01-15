@@ -5,24 +5,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.theater_reservation_system.repository.NotificationRepository;
+import com.example.theater_reservation_system.service.NotificationService;
 import com.example.theater_reservation_system.entity.Notification;
 
 
 @Controller
 public class NotificationController extends BaseController {
 
-  private final NotificationRepository repository;
+  private final NotificationService service;
 
   @Autowired
-  public NotificationController(NotificationRepository repository) {
-    this.repository = repository;
+  public NotificationController(NotificationService service) {
+    this.service = service;
   }
 
   @RequestMapping("/notifications")
   public String getMovies(Model model) {
-    Iterable<Notification> theaters = repository.findAll();
-    model.addAttribute("notifications", theaters);
-    return template("notifications/index", model);
+    Iterable<Notification> notifications = service.findAll();
+    model.addAttribute("notifications", notifications);
+    return template("notifications/index", model, "通知一覧");
   }
 }

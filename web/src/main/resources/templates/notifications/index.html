@@ -1,7 +1,9 @@
-<p>notifications</p>
-<table>
-  <tbody th:each="notification : ${notifications}">
-    <td th:text="${notification.text}"></td>
-    <td><span th:if="${notification.checked}">✓</span></td>
+<h1>通知一覧</h1>
+<table class="table table-hover">
+  <tbody>
+    <tr th:each="notification : ${notifications}">
+      <td th:text="${notification.text}"></td>
+      <td><span th:if="${notification.checked}">✓</span></td>
+    </tr>
   </tbody>
 </table>

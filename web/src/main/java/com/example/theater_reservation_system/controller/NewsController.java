@@ -1,8 +1,12 @@
 package com.example.theater_reservation_system.controller;
 
 import org.springframework.stereotype.Controller;
+
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.theater_reservation_system.service.NewsService;
@@ -19,10 +23,10 @@ public class NewsController extends BaseController {
     this.service = service;
   }
 
-  @RequestMapping("/news")
-  public String getMovies(Model model) {
-    Iterable<News> newsList = service.findAll();
-    model.addAttribute("newsList", newsList);
-    return template("news/index", model, "ニュース");
+  @RequestMapping("/news/{id:.+}")
+  public String getNews(Model model, @PathVariable("id") UUID newsId) {
+    News news = service.findById(newsId);
+    model.addAttribute("news", news);
+    return template("news/show", model, "");
   }
 }

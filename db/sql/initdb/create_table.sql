@@ -35,6 +35,7 @@ CREATE TRIGGER trg_theaters_updated_at BEFORE UPDATE ON theaters FOR EACH ROW EX
 CREATE TABLE rooms (
   id UUID DEFAULT gen_random_uuid(),
   theater_id UUID NOT NULL,
+  name VARCHAR(100)  NOT NULL,
   seats_count INTEGER NOT NULL,
   seats JSON NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -67,7 +68,7 @@ CREATE TABLE schedules (
 );
 CREATE TRIGGER trg_schedules_updated_at BEFORE UPDATE ON schedules FOR EACH ROW EXECUTE PROCEDURE set_updated_at();
 
-CREATE TABLE reservations (
+CREATE TABLE tickets (
   id UUID DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL,
   schedule_id UUID NOT NULL,
@@ -77,7 +78,7 @@ CREATE TABLE reservations (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (id)
 );
-CREATE TRIGGER trg_reservations_updated_at BEFORE UPDATE ON reservations FOR EACH ROW EXECUTE PROCEDURE set_updated_at();
+CREATE TRIGGER trg_tickets_updated_at BEFORE UPDATE ON tickets FOR EACH ROW EXECUTE PROCEDURE set_updated_at();
 
 CREATE TABLE news (
   id UUID DEFAULT gen_random_uuid(),

@@ -8,10 +8,10 @@ INSERT INTO theaters (name, area, access) VALUES
   ('映画館2', 2, '住所2'),
   ('映画館3', 3, '住所3');
 
-INSERT INTO rooms (theater_id, seats_count, seats) VALUES
-  ((SELECT id FROM theaters LIMIT 1), 1, '{ "A": "b4s8b1s8b1s3", "B": "s3b1s8b1s8b1s3" }'),
-  ((SELECT id FROM theaters LIMIT 1 OFFSET 1), 2, '{ "A": "b4s8b1s8b1s3", "B": "s3b1s8b1s8b1s3" }'),
-  ((SELECT id FROM theaters LIMIT 1 OFFSET 2), 3, '{ "A": "b4s8b1s8b1s3", "B": "s3b1s8b1s8b1s3" }');
+INSERT INTO rooms (theater_id, name, seats_count, seats) VALUES
+  ((SELECT id FROM theaters LIMIT 1), 'ルームA', 1, '{ "A": "b4s8b1s8b1s3", "B": "s3b1s8b1s8b1s3" }'),
+  ((SELECT id FROM theaters LIMIT 1 OFFSET 1), 'ルームB', 2, '{ "A": "b4s8b1s8b1s3", "B": "s3b1s8b1s8b1s3" }'),
+  ((SELECT id FROM theaters LIMIT 1 OFFSET 2), 'ルームC', 3, '{ "A": "b4s8b1s8b1s3", "B": "s3b1s8b1s8b1s3" }');
 
 INSERT INTO movies (title, genre, period_start, period_end) VALUES
   ('映画1', 1, TIMESTAMP '2025-01-01', TIMESTAMP '2025-04-01'),
@@ -23,7 +23,7 @@ INSERT INTO schedules (movie_id, room_id, start_at, end_at) VALUES
   ((SELECT id FROM movies LIMIT 1 OFFSET 1), (SELECT id FROM rooms LIMIT 1 OFFSET 1), TIMESTAMP '2025-01-02 13:00', TIMESTAMP '2025-01-02 14:30'),
   ((SELECT id FROM movies LIMIT 1 OFFSET 2), (SELECT id FROM rooms LIMIT 1 OFFSET 2), TIMESTAMP '2025-01-03 13:00', TIMESTAMP '2025-01-03 14:30');
 
-INSERT INTO reservations (user_id, schedule_id, seat_column, seat_row) VALUES
+INSERT INTO tickets (user_id, schedule_id, seat_column, seat_row) VALUES
   ((SELECT id FROM users LIMIT 1), (SELECT id FROM schedules LIMIT 1), 'B', 1),
   ((SELECT id FROM users LIMIT 1), (SELECT id FROM schedules LIMIT 1 OFFSET 1), 'B', 1),
   ((SELECT id FROM users LIMIT 1), (SELECT id FROM schedules LIMIT 1 OFFSET 2), 'B', 1);

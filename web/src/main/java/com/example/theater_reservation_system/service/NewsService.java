@@ -1,5 +1,7 @@
 package com.example.theater_reservation_system.service;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,12 @@ public class NewsService {
   NewsRepository newsRepository;
 
   public Iterable<News> findAll() {
-    Iterable<News> news = newsRepository.findAll();
+    Iterable<News> newsList = newsRepository.findAll();
+    return newsList;
+  }
+
+  public News findById(UUID id){
+    News news = newsRepository.findById(id);
     return news;
   }
 }

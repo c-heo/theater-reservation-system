@@ -2,11 +2,11 @@ package com.example.theater_reservation_system.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController extends BaseController {
-  @GetMapping("/login")
+  @RequestMapping("/login")
   public String login(Model model) {
     return "login";
   }

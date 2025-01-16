@@ -20,7 +20,7 @@ public class NotificationController extends BaseController {
   }
 
   @RequestMapping("/notifications")
-  public String getMovies(Model model) {
+  public String getNotifications(Model model) {
     Iterable<Notification> notifications = service.findAll();
     model.addAttribute("notifications", notifications);
     return template("notifications/index", model, "通知一覧");

@@ -1,0 +1,23 @@
+<h1>チケット一覧</h1>
+<p th:if="${deleted}">チケットを削除しました。</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="col-4">チケットID</th>
+      <th class="col-2">映画タイトル</th>
+      <th class="col-2">映画館</th>
+      <th class="col-1">部屋</th>
+      <th class="col-1">席</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="ticket : ${tickets}">
+      <td th:text="${ticket.id}"></td>
+      <td th:text="${ticket.schedule.movie.title}"></td>
+      <td th:text="${ticket.schedule.room.theater.name}"></td>
+      <td th:text="${ticket.schedule.room.name}"></td>
+      <td><span th:text="${ticket.seat_column}"></span><span th:text="${ticket.seat_row}"></span></td>
+      <td><a th:href="@{/ticket/delete?id=} + ${ticket.id}" class="btn btn-outline-danger">削除</a></td>
+    </tr>
+  </tbody>
+</table>

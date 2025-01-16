@@ -1,0 +1,11 @@
+<h1 th:text="${theater.name}"></h1>
+<table class="table">
+  <tbody>
+    <tr>
+      <th>エリア</th><td th:text="${theater.getArea()}"></td>
+    </tr>
+    <tr>
+      <th>住所</th><td th:text="${theater.access}"></td>
+    </tr>
+  </tbody>
+</table>

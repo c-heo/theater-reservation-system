@@ -1,5 +1,7 @@
 package com.example.theater_reservation_system.service;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,10 @@ public class TheaterService {
   public Iterable<Theater> findAll() {
     Iterable<Theater> theaters = theaterRepository.findAll();
     return theaters;
+  }
+
+  public Theater findById(UUID id){
+    Theater theater = theaterRepository.findById(id);
+    return theater;
   }
 }

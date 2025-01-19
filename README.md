@@ -20,7 +20,7 @@ docker-compose up -d
 ## サーバー起動
 ```
 docker-compose up -d
-open http://localhost:3000/
+open http://localhost:8080/
 ```
 
 ## テストデータ作成

@@ -72,8 +72,8 @@ CREATE TABLE tickets (
   id UUID DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL,
   schedule_id UUID NOT NULL,
-  seat_column VARCHAR(4) NOT NULL,
-  seat_row INTEGER NOT NULL,
+  seat_row VARCHAR(4) NOT NULL,
+  seat_column INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
   PRIMARY KEY (id)

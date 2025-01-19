@@ -3,6 +3,8 @@ package com.example.theater_reservation_system.service;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.example.theater_reservation_system.entity.News;
@@ -14,8 +16,8 @@ public class NewsService {
   @Autowired
   NewsRepository newsRepository;
 
-  public Iterable<News> findAll() {
-    Iterable<News> newsList = newsRepository.findAll();
+  public Page<News> getNews(Pageable pageable) {
+    Page<News> newsList = newsRepository.findAll(pageable);
     return newsList;
   }
 

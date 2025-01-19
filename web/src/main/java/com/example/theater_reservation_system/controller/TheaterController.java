@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +26,10 @@ public class TheaterController extends BaseController {
   }
 
   @RequestMapping("/theaters")
-  public String getTheaters(Model model) {
-    Iterable<Theater> theaters = service.findAll();
-    model.addAttribute("theaters", theaters);
+  public String getTheaters(Model model, Pageable pageable) {
+    Page<Theater> theaters = service.getTheaters(pageable);
+    model.addAttribute("page", theaters);
+    model.addAttribute("theaters", theaters.getContent());
     return template("theaters/index", model, "映画館一覧");
   }
 

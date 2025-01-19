@@ -16,7 +16,8 @@
         <span th:text="${movie.title}"></span>
       </td>
       <td th:text="${movie.getGanre()}"></td>
-      <td><span th:text="${movie.period_start}"></span>～<span th:text="${movie.period_end}"></span></td>
+      <td><span th:text="${movie.periodStart}"></span>～<span th:text="${movie.periodEnd}"></span></td>
     </tr>
   </tbody>
 </table>
+<div th:insert="~{layout/page}"></div>

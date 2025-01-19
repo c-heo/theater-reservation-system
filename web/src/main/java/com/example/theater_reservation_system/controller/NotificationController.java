@@ -2,6 +2,8 @@ package com.example.theater_reservation_system.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,9 +22,10 @@ public class NotificationController extends BaseController {
   }
 
   @RequestMapping("/notifications")
-  public String getNotifications(Model model) {
-    Iterable<Notification> notifications = service.findAll();
-    model.addAttribute("notifications", notifications);
+  public String getNotifications(Model model, Pageable pageable) {
+    Page<Notification> notifications = service.getNotifications(pageable);
+    model.addAttribute("page", notifications);
+    model.addAttribute("notifications", notifications.getContent());
     return template("notifications/index", model, "通知一覧");
   }
 }

@@ -17,9 +17,10 @@
             </div>
             <span th:text="${news.title}"></span>
           </td>
-          <td><span th:text="${news.created_at}"></span></td>
+          <td><span th:text="${news.createdAt}"></span></td>
         </tr>
       </tbody>
     </table>
+    <div th:insert="~{layout/page}"></div>
   </div>
 </div>

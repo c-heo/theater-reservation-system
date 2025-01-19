@@ -1,8 +1,9 @@
 package com.example.theater_reservation_system.entity;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,14 +23,21 @@ public class Schedule {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
-  private Date start_at;
-  private Date end_at;
+
+  @Column(name="movie_id")
+  private UUID movieId;
+
+  @Column(name="room_id")
+  private UUID roomId;
+
+  private LocalDateTime startAt;
+  private LocalDateTime endAt;
   
   @ManyToOne
-	@JoinColumn(name="movie_id")
+	@JoinColumn(name="movie_id", insertable=false, updatable=false)
   private Movie movie;
   
   @ManyToOne
-	@JoinColumn(name="room_id")
+	@JoinColumn(name="room_id", insertable=false, updatable=false)
   private Room room;
 }

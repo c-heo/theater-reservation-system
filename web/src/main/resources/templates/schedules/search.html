@@ -1,0 +1,20 @@
+<h1>スケジュール一覧</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>映画館:部屋</th>
+      <th>放映時間</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="schedule : ${schedules}" class="position-relative">
+      <td th:text="${schedule.movie.title}"></td>
+      <td th:text="${schedule.room.theater.name}+':'+${schedule.room.name}"></td>
+      <td><span th:text="${schedule.startAt}"></span>～<span th:text="${schedule.endAt}"></span></td>
+      <td><a th:href="'/ticket/purchase?scheduleId=' + ${schedule.id}" class="btn btn-outline-primary">チケット購入</a></td>
+    </tr>
+  </tbody>
+</table>
+<div th:insert="~{layout/page}"></div>

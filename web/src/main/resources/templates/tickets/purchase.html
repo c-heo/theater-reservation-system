@@ -1,5 +1,16 @@
 <h1>チケット購入</h1>
-<form th:action="@{/profile/update}" method="post" th:object="${user}">
+<form th:action="@{/ticket/create}" method="post">
+  <input hidden name="scheduleId" th:value="${schedule.id}">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>席行</th><td><input type="text" name="seat_row" class="form-control" /></td>
+      </tr>
+      <tr>
+        <th>席列</th><td><input type="number" name="seat_column" class="form-control" value="0" /></td>
+      </tr>
+    </tbody>
+  </table>
   <div class="d-flex justify-content-end">
     <button class="btn btn-outline-primary" name="Submit" type="Submit">購入</button>
   </div>

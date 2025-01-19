@@ -2,6 +2,7 @@ package com.example.theater_reservation_system.entity;
 
 import java.util.UUID;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,11 +22,15 @@ public class Room {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
+
+  @Column(name="theater_id")
+  private UUID theaterId;
+
   private String name;
-  private int seats_count;
+  private int seatsCount;
   private String seats;
   
   @ManyToOne
-	@JoinColumn(name="theater_id")
+	@JoinColumn(name="theater_id", insertable=false, updatable=false)
   private Theater theater;
 }

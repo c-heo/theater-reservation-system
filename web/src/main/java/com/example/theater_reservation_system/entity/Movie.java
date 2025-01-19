@@ -1,6 +1,6 @@
 package com.example.theater_reservation_system.entity;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -24,8 +24,8 @@ public class Movie {
   private UUID id;
   private String title;
   private int genre;
-  private Date period_start;
-  private Date period_end;
+  private LocalDateTime periodStart;
+  private LocalDateTime periodEnd;
 
   public String getGanre(){
     Map<Integer, String> ganreText = new HashMap<>();

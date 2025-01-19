@@ -23,7 +23,7 @@ INSERT INTO schedules (movie_id, room_id, start_at, end_at) VALUES
   ((SELECT id FROM movies LIMIT 1 OFFSET 1), (SELECT id FROM rooms LIMIT 1 OFFSET 1), TIMESTAMP '2025-01-02 13:00', TIMESTAMP '2025-01-02 14:30'),
   ((SELECT id FROM movies LIMIT 1 OFFSET 2), (SELECT id FROM rooms LIMIT 1 OFFSET 2), TIMESTAMP '2025-01-03 13:00', TIMESTAMP '2025-01-03 14:30');
 
-INSERT INTO tickets (user_id, schedule_id, seat_column, seat_row) VALUES
+INSERT INTO tickets (user_id, schedule_id, seat_row, seat_column) VALUES
   ((SELECT id FROM users LIMIT 1), (SELECT id FROM schedules LIMIT 1), 'B', 1),
   ((SELECT id FROM users LIMIT 1), (SELECT id FROM schedules LIMIT 1 OFFSET 1), 'B', 1),
   ((SELECT id FROM users LIMIT 1), (SELECT id FROM schedules LIMIT 1 OFFSET 2), 'B', 1);

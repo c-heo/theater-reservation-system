@@ -1,4 +1,5 @@
 <h1>チケット一覧</h1>
+<p th:if="${created}">チケットを購入しました。</p>
 <p th:if="${deleted}">チケットを削除しました。</p>
 <table class="table table-hover">
   <thead>
@@ -16,8 +17,10 @@
       <td th:text="${ticket.schedule.movie.title}"></td>
       <td th:text="${ticket.schedule.room.theater.name}"></td>
       <td th:text="${ticket.schedule.room.name}"></td>
-      <td><span th:text="${ticket.seat_column}"></span><span th:text="${ticket.seat_row}"></span></td>
+      <td><span th:text="${ticket.seatRow}"></span><span th:text="${ticket.seatColumn}"></span></td>
       <td><a th:href="@{/ticket/delete?id=} + ${ticket.id}" class="btn btn-outline-danger">削除</a></td>
     </tr>
   </tbody>
 </table>
+<div th:insert="~{layout/page}"></div>
+<div th:text="${test}"></div>

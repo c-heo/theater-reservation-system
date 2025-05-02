@@ -12,18 +12,26 @@ services:
       - ./db/tmp:/var/lib/postgresql/data
       - ./db/sql/initdb:/docker-entrypoint-initdb.d
       - ./db/sql:/sql/
-  web:
+  back:
     image: openjdk:17
     ports:
       - 8080:8080
     tty: true
     volumes:
-      - ./web:/srv:cached
-      - ./web/entrypoint.sh:/entrypoint.sh
+      - ./back:/srv:cached
+      - ./back/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/bin/sh","/entrypoint.sh", "${DEV_ENV}"]
     working_dir: /srv
     depends_on:
       - db
+  front:
+    image: node:lts-bullseye
+    ports:
+      - '3000:3000'
+    working_dir: /front
+    volumes:
+      - ./front:/front:cached
+    command: sh -c 'npm install && npm start'
 
 volumes:
   postgres:

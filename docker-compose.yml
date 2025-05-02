@@ -31,7 +31,7 @@ services:
     working_dir: /front
     volumes:
       - ./front:/front:cached
-    command: sh -c 'yarn start'
+    command: sh -c 'npm install && npm start'
 
 volumes:
   postgres:
